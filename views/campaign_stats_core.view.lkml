@@ -87,7 +87,7 @@ view: campaign_stats_core {
     group_label: "Average Metrics"
     label: "Average Bounce Rate"
     type: number
-    sql: SUM(${push_bounces} + ${email_bounces})/SUM(${estimated_audience}) ;;
+    sql: SUM(${push_bounces} + ${email_bounces})/NULLIF(SUM(${estimated_audience}),0) ;;
     value_format_name: percent_1
   }
 
@@ -95,7 +95,7 @@ view: campaign_stats_core {
     group_label: "Average Metrics"
     label: "Average Subscriptions"
     type: number
-    sql: SUM(${subscriptions})/${num_of_campaigns} ;;
+    sql: SUM(${subscriptions})/NULLIF(${num_of_campaigns},0) ;;
     value_format_name: decimal_1
   }
 
@@ -103,7 +103,7 @@ view: campaign_stats_core {
     group_label: "Average Metrics"
     label: "Average Conversion Rate"
     type: number
-    sql: SUM(${conversions})/SUM(${estimated_audience}) ;;
+    sql: SUM(${conversions})/NULLIF(SUM(${estimated_audience}),0) ;;
     value_format_name: percent_1
   }
 
@@ -111,7 +111,7 @@ view: campaign_stats_core {
     group_label: "Average Metrics"
     label: "Average Number of Conversion Events"
     type: number
-    sql: SUM(${conversions})/${num_of_campaigns} ;;
+    sql: SUM(${conversions})/NULLIF(${num_of_campaigns},0) ;;
     value_format_name: decimal_1
   }
 
@@ -119,7 +119,7 @@ view: campaign_stats_core {
     group_label: "Average Metrics"
     label: "Average Estimated Audience"
     type: number
-    sql: SUM(${estimated_audience})/${num_of_campaigns} ;;
+    sql: SUM(${estimated_audience})/NULLIF(${num_of_campaigns}) ;;
     value_format_name: decimal_0
   }
 
