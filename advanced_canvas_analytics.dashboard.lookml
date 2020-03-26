@@ -262,7 +262,7 @@
     name: Canvas Flow by Impressions
     model: block_braze
     explore: canvas
-    type: block-braze-sankey
+    type: block-braze::block-braze-sankey
     fields: [entry_canvas_step.canvas_step_name, conversion_canvas_step.canvas_step_name,
       canvas.estimated_impressions]
     sorts: [canvas.estimated_impressions desc]
@@ -316,7 +316,7 @@
     name: How Many Steps from Entry Event to Conversion Event
     model: block_braze
     explore: canvas
-    type: block-braze-sankey
+    type: block-braze::block-braze-sankey
     fields: [entry_canvas_step.canvas_step_name, canvas_step_seq.canvas_step_seq,
       conversion_canvas_step.canvas_step_name, canvas.estimated_impressions]
     sorts: [canvas_step_seq.canvas_step_seq desc]
