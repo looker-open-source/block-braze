@@ -8,7 +8,7 @@ view: canvas_variation {
 ###################################################
 
 view: canvas_variation_core {
-  sql_table_name: brazedev.CANVAS_VARIATION ;;
+  sql_table_name: @{DATASET_NAME}.CANVAS_VARIATION ;;
 
   dimension: canvas_id {
     hidden: yes

@@ -12,6 +12,11 @@ constant: CONNECTION_NAME {
   export: override_required
 }
 
+constant: DATASET_NAME {
+  value: "braze_variant_1"
+  export: override_required
+}
+
 ### If needed TODO Add more constants here
 
 ################ Dependencies ################

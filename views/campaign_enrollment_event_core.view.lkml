@@ -8,7 +8,7 @@ view: campaign_enrollment_event {
 ###################################################
 
 view: campaign_enrollment_event_core {
-  sql_table_name: brazedev.CAMPAIGN_ENROLLMENT_EVENT ;;
+  sql_table_name: @{DATASET_NAME}.CAMPAIGN_ENROLLMENT_EVENT ;;
   drill_fields: [id]
 
   dimension: id {

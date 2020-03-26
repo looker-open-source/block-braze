@@ -8,7 +8,7 @@ view: session_event {
 ###################################################
 
 view: session_event_core {
-  sql_table_name: brazedev.SESSION_EVENT ;;
+  sql_table_name: @{DATASET_NAME}.SESSION_EVENT ;;
   drill_fields: [id]
 
   dimension: id {

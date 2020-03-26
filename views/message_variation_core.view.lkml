@@ -8,7 +8,7 @@ view: message_variation {
 ###################################################
 
 view: message_variation_core {
-  sql_table_name: brazedev.MESSAGE_VARIATION ;;
+  sql_table_name: @{DATASET_NAME}.MESSAGE_VARIATION ;;
   drill_fields: [id]
 
   dimension: id {
