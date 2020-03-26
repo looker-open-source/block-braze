@@ -35,9 +35,7 @@ view: canvas_variation_core {
     ]
   }
 
-# TODO: Is this a string or number field?
   dimension: variant_name {
-    hidden: yes
     type: string
     sql: ${TABLE}.variant_name ;;
     primary_key: yes
