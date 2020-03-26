@@ -1,5 +1,5 @@
 connection: "@{CONNECTION_NAME}"
-label: "🔥 Braze Block"
+label: "Braze Block"
 
 include: "views/*.view.lkml"
 include: "*.explore.lkml"

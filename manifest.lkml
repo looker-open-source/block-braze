@@ -17,8 +17,6 @@ constant: DATASET_NAME {
   export: override_required
 }
 
-### If needed TODO Add more constants here
-
 ################ Dependencies ################
 
 visualization: {
@@ -29,7 +27,4 @@ visualization: {
 
 local_dependency: {
   project: "@{CONFIG_PROJECT_NAME}"
-
-  #### If needed TODO Add CONFIG constants here that we want overridden by CORE constants
-
 }
