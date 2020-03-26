@@ -112,7 +112,7 @@ explore: campaign_core {
   join: newsfeed_card_event {
     view_label: "Card Event"
     sql_on: ${card.id} = ${newsfeed_card_event.card_id}
-      AND ${card.updated_raw} = ${newsfeed_card_event.card_updated_at}
+      AND ${card.updated_raw} = ${newsfeed_card_event.card_updated_raw}
     ;;
     relationship: many_to_one
   }
