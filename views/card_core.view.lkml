@@ -24,7 +24,7 @@ view: card_core {
     description: "whether this Card is archived"
   }
 
-  dimension_group: careated {
+  dimension_group: created {
     type: time
     sql: PARSE_TIMESTAMP('%Y-%m-%dT%H:%M:%S', ${TABLE}.created_at) ;;
     timeframes: [
