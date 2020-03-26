@@ -119,7 +119,7 @@ view: campaign_stats_core {
     group_label: "Average Metrics"
     label: "Average Estimated Audience"
     type: number
-    sql: SUM(${estimated_audience})/NULLIF(${num_of_campaigns}) ;;
+    sql: SUM(${estimated_audience})/NULLIF(${num_of_campaigns}, 0) ;;
     value_format_name: decimal_0
   }
 
