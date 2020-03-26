@@ -16,6 +16,12 @@ constant: CONNECTION_NAME {
 
 ################ Dependencies ################
 
+visualization: {
+  id: "block-braze-sankey"
+  label: ""
+  file: "sankey.js"
+}
+
 local_dependency: {
   project: "@{CONFIG_PROJECT_NAME}"
 
