@@ -11,8 +11,9 @@ view: campaign_stats_core {
     explore_source: campaign {
       column: updated { field: campaign.updated_raw }
       column: conversions { field: campaign_conversion_event.count }
-      column: estimated_audience {}
       column: name {}
+      column: channel {}
+      column: estimated_audience {}
       column: push_bounces { field: push_notification_event.total_bounces }
       column: email_bounces { field: email_event.total_bounces }
       column: campaign_id { field: campaign.id }
@@ -20,7 +21,7 @@ view: campaign_stats_core {
       column: subscriptions { field: subscription_event.count }
       column: days_time_to_conversion { field: campaign_enrollment_event.days_to_conversion }
 
-      filters: [campaign.estimated_audience: "NOT NULL"]
+#       filters: [campaign.estimated_audience: "NOT NULL"]
     }
 
     sql_trigger_value: SELECT CURRENT_DATE() ;;
@@ -33,7 +34,7 @@ view: campaign_stats_core {
   }
 
   dimension: campaign_id {
-    hidden: yes
+    #hidden: yes
     type: string
   }
 
@@ -47,10 +48,22 @@ view: campaign_stats_core {
     hidden: yes
     type: number
   }
+  measure: sum_conversions {
+    hidden: yes
+    type: sum_distinct
+    sql: ${conversions} ;;
+    sql_distinct_key: ${campaign_id} ;;
+  }
 
   dimension: estimated_audience {
     hidden: yes
     type: number
+  }
+  measure: sum_estimated_audience {
+    #hidden: yes
+    type: sum_distinct
+    sql: ${estimated_audience} ;;
+    sql_distinct_key: ${campaign_id} ;;
   }
 
   dimension: name {
@@ -63,19 +76,45 @@ view: campaign_stats_core {
     type: number
   }
 
+  dimension: channel {}
+
   dimension: subscriptions {
     hidden: yes
     type: number
   }
+  measure: sum_subscriptions {
+    hidden: yes
+    type: sum_distinct
+    sql: ${subscriptions} ;;
+    sql_distinct_key: ${campaign_id} ;;
+   }
 
   dimension: days_time_to_conversion {
     hidden: yes
     type: number
   }
 
-  dimension: push_bounces {}
+  dimension: push_bounces {
+    hidden: yes
+    type: number
+  }
+  measure: sum_push_bounces {
+    hidden: yes
+    type: sum_distinct
+    sql: ${push_bounces} ;;
+    sql_distinct_key: ${campaign_id} ;;
+  }
 
-  dimension: email_bounces {}
+  dimension: email_bounces {
+    hidden: yes
+    type: number
+  }
+  measure: sum_email_bounces {
+    hidden: yes
+    type: sum_distinct
+    sql: ${email_bounces} ;;
+    sql_distinct_key: ${campaign_id} ;;
+  }
 
   measure: num_of_campaigns {
     hidden: yes
@@ -87,7 +126,7 @@ view: campaign_stats_core {
     group_label: "Average Metrics"
     label: "Average Bounce Rate"
     type: number
-    sql: SUM(${push_bounces} + ${email_bounces})/NULLIF(SUM(${estimated_audience}),0) ;;
+    sql: (${sum_push_bounces} + ${sum_email_bounces})/NULLIF(${sum_estimated_audience},0) ;;
     value_format_name: percent_1
   }
 
@@ -95,7 +134,7 @@ view: campaign_stats_core {
     group_label: "Average Metrics"
     label: "Average Subscriptions"
     type: number
-    sql: SUM(${subscriptions})/NULLIF(${num_of_campaigns},0) ;;
+    sql: ${sum_subscriptions}/NULLIF(${num_of_campaigns},0) ;;
     value_format_name: decimal_1
   }
 
@@ -103,7 +142,7 @@ view: campaign_stats_core {
     group_label: "Average Metrics"
     label: "Average Conversion Rate"
     type: number
-    sql: SUM(${conversions})/NULLIF(SUM(${estimated_audience}),0) ;;
+    sql: ${sum_conversions}/NULLIF(${sum_estimated_audience},0) ;;
     value_format_name: percent_1
   }
 
@@ -111,7 +150,7 @@ view: campaign_stats_core {
     group_label: "Average Metrics"
     label: "Average Number of Conversion Events"
     type: number
-    sql: SUM(${conversions})/NULLIF(${num_of_campaigns},0) ;;
+    sql: ${sum_conversions}/NULLIF(${num_of_campaigns},0) ;;
     value_format_name: decimal_1
   }
 
@@ -119,7 +158,7 @@ view: campaign_stats_core {
     group_label: "Average Metrics"
     label: "Average Estimated Audience"
     type: number
-    sql: SUM(${estimated_audience})/NULLIF(${num_of_campaigns}, 0) ;;
+    sql: ${sum_estimated_audience}/NULLIF(${num_of_campaigns}, 0) ;;
     value_format_name: decimal_0
   }
 

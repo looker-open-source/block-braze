@@ -174,9 +174,9 @@ view: campaign_core {
 
   measure: estimated_audience {
     type: number
-    sql: ${email_event.count} + ${subscription_event.count} + ${webhook_event.count} + ${subscription_event.count}
+    sql: ${email_event.count} + ${subscription_event.count} + ${webhook_event.count}
       + ${in_app_message_event.count} + ${push_notification_event.count};;
-    drill_fields: [detail*]
+#     drill_fields: [detail*]
   }
 
   set: detail {
