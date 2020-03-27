@@ -104,7 +104,7 @@ explore: campaign_core {
 
   join: card {
     sql_on: ${in_app_message_event.card_id} = ${card.id}
-      AND ${in_app_message_event.card_updated_at_raw} = ${card.updated_raw}
+      AND ${in_app_message_event.card_updated_raw} = ${card.updated_raw}
     ;;
     relationship: many_to_one
   }
