@@ -29,9 +29,20 @@ view: app_uninstall_core {
     description: "external id of the user"
   }
 
-  dimension: time {
-    type: string
-    sql: ${TABLE}.time ;;
+  dimension_group: time {
+    type: time
+    sql: PARSE_TIMESTAMP('%Y-%m-%dT%H:%M:%S', ${TABLE}.time) ;;
+    timeframes: [
+      raw,
+      date,
+      week,
+      month,
+      quarter,
+      year,
+      fiscal_month_num,
+      fiscal_quarter,
+      fiscal_quarter_of_year,
+      fiscal_year]
   }
 
   dimension: user_id {

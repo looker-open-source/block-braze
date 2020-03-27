@@ -25,7 +25,7 @@ view: canvas_conversion_behavior_core {
     description: "id of the Canvas if from a canvas"
   }
 
-  dimension_group: canvas_updated_at {
+  dimension_group: canvas_updated {
     type: time
     hidden:  yes
     sql: PARSE_TIMESTAMP('%Y-%m-%dT%H:%M:%S', ${TABLE}.canvas_updated_at) ;;

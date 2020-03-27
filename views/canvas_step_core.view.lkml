@@ -30,7 +30,7 @@ view: canvas_step_core {
     sql: ${TABLE}.canvas_step_name ;;
   }
 
-  dimension_group: canvas_updated_at {
+  dimension_group: canvas_updated {
     hidden: yes
     type: time
     sql: PARSE_TIMESTAMP('%Y-%m-%dT%H:%M:%S', ${TABLE}.canvas_updated_at) ;;

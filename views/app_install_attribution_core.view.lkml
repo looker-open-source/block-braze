@@ -29,9 +29,21 @@ view: app_install_attribution_core {
     description: "the source of the attribution"
   }
 
-  dimension: time {
-    type: string
-    sql: ${TABLE}.time ;;
+  dimension_group: updated {
+    hidden: yes
+    type: time
+    sql: PARSE_TIMESTAMP('%Y-%m-%dT%H:%M:%S', ${TABLE}.time) ;;
+    timeframes: [
+      raw,
+      date,
+      week,
+      month,
+      quarter,
+      year,
+      fiscal_month_num,
+      fiscal_quarter,
+      fiscal_quarter_of_year,
+      fiscal_year]
   }
 
   dimension: user_id {

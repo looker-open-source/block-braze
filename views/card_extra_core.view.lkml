@@ -16,10 +16,21 @@ view: card_extra_core {
     hidden: yes
   }
 
-  dimension: card_updated_at {
-    type: string
+  dimension_group: card_updated {
     hidden: yes
-    sql: ${TABLE}.card_updated_at ;;
+    type: time
+    sql: PARSE_TIMESTAMP('%Y-%m-%dT%H:%M:%S', ${TABLE}.card_updated_at) ;;
+    timeframes: [
+      raw,
+      date,
+      week,
+      month,
+      quarter,
+      year,
+      fiscal_month_num,
+      fiscal_quarter,
+      fiscal_quarter_of_year,
+      fiscal_year]
   }
 
   dimension: key {

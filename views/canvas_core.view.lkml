@@ -62,7 +62,7 @@ view: canvas_core {
     description: "Are web_hook events associated with Canvas?"
   }
 
-  dimension_group: created_at {
+  dimension_group: created {
     type: time
     sql: PARSE_TIMESTAMP('%Y-%m-%dT%H:%M:%S', ${TABLE}.created_at) ;;
     timeframes:
@@ -143,7 +143,7 @@ view: canvas_core {
   }
 
 
-  dimension_group: updated_at {
+  dimension_group: updated {
     type: time
     sql: PARSE_TIMESTAMP('%Y-%m-%dT%H:%M:%S', ${TABLE}.updated_at) ;;
     description: "date updated as ISO 8601 date"

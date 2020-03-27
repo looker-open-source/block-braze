@@ -36,9 +36,20 @@ view: message_variation_core {
     description: "id of the campaign if from a campaign"
   }
 
-  dimension: campaign_updated_at {
-    type: string
-    sql: ${TABLE}.campaign_updated_at ;;
+  dimension_group: campaign_updated {
+    type: time
+    sql: PARSE_TIMESTAMP('%Y-%m-%dT%H:%M:%S', ${TABLE}.campaign_updated_at) ;;
+    timeframes: [
+      raw,
+      date,
+      week,
+      month,
+      quarter,
+      year,
+      fiscal_month_num,
+      fiscal_quarter,
+      fiscal_quarter_of_year,
+      fiscal_year]
   }
 
   dimension: canvas_step_id {
@@ -47,9 +58,20 @@ view: message_variation_core {
     description: "id of the step for this message if from a Canvas"
   }
 
-  dimension: canvas_step_updated_at {
-    type: string
-    sql: ${TABLE}.canvas_step_updated_at ;;
+  dimension_group: canvas_step_updated {
+    type: time
+    sql: PARSE_TIMESTAMP('%Y-%m-%dT%H:%M:%S', ${TABLE}.canvas_step_updated_at) ;;
+    timeframes: [
+      raw,
+      date,
+      week,
+      month,
+      quarter,
+      year,
+      fiscal_month_num,
+      fiscal_quarter,
+      fiscal_quarter_of_year,
+      fiscal_year]
   }
 
   dimension: channel {

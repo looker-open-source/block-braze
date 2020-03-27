@@ -17,7 +17,7 @@ view: campaign_tag_core {
     description: "id of the campaign if from a campaign"
   }
 
-  dimension_group: campaign_updated_at {
+  dimension_group: campaign_updated {
     type: time
     hidden: yes
     sql: PARSE_TIMESTAMP('%Y-%m-%dT%H:%M:%S', ${TABLE}.campaign_updated_at) ;;

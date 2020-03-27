@@ -31,7 +31,7 @@ view: canvas_entry_event_core {
     description: "id of the step for this message if from a Canvas"
   }
 
-  dimension_group: canvas_step_updated_at {
+  dimension_group: canvas_step_updated {
     hidden: yes
     type: time
     sql: PARSE_TIMESTAMP('%Y-%m-%dT%H:%M:%S', ${TABLE}.canvas_step_updated_at) ;;
@@ -50,7 +50,7 @@ view: canvas_entry_event_core {
     ]
   }
 
-  dimension_group: canvas_updated_at {
+  dimension_group: canvas_updated {
     hidden: yes
     type: time
     sql: PARSE_TIMESTAMP('%Y-%m-%dT%H:%M:%S', ${TABLE}.canvas_updated_at) ;;
