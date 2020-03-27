@@ -42,7 +42,7 @@ view: in_app_message_event_core {
   dimension_group: campaign_updated {
     type: time
     hidden: yes
-    sql: PARSE_TIMESTAMP('%Y-%m-%dT%H:%M:%S', ${TABLE}.camapign_updated_at) ;;
+    sql: PARSE_TIMESTAMP('%Y-%m-%dT%H:%M:%S', ${TABLE}.campaign_updated_at) ;;
     timeframes: [
       raw,
       date,
@@ -118,10 +118,11 @@ view: in_app_message_event_core {
     description: "id of the content card that was viewed/clicked/dismissed"
   }
 
-  dimension: card_updated_at {
-    type: string
+  dimension_group: card_updated_at {
+    type: time
     hidden: yes
-    sql: ${TABLE}.card_updated_at ;;
+    timeframes: [raw, date, month, year]
+    sql: PARSE_TIMESTAMP('%Y-%m-%dT%H:%M:%S', ${TABLE}.card_updated_at) ;;
   }
 
   dimension: device_id {

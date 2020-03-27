@@ -13,7 +13,7 @@ constant: CONNECTION_NAME {
 }
 
 constant: DATASET_NAME {
-  value: "brazedev"
+  value: "braze_ship"
   export: override_required
 }
 

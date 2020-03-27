@@ -20,7 +20,7 @@ view: campaign_conversion_behavior_core {
   dimension_group: updated {
     hidden: yes
     type: time
-    sql: PARSE_TIMESTAMP('%Y-%m-%dT%H:%M:%S', ${TABLE}.updated_at) ;;
+    sql: PARSE_TIMESTAMP('%Y-%m-%dT%H:%M:%S', ${TABLE}.campaign_updated_at) ;;
     timeframes: [
       raw,
       date,

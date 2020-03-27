@@ -28,7 +28,7 @@ view: webhook_event_core {
   dimension_group: campaign_updated {
     type: time
     hidden: yes
-    sql: PARSE_TIMESTAMP('%Y-%m-%dT%H:%M:%S', ${TABLE}.camapign_updated_at) ;;
+    sql: PARSE_TIMESTAMP('%Y-%m-%dT%H:%M:%S', ${TABLE}.campaign_updated_at) ;;
     timeframes: [
       raw,
       date,

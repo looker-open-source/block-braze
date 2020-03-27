@@ -17,11 +17,22 @@ view: campaign_tag_core {
     description: "id of the campaign if from a campaign"
   }
 
-  dimension: campaign_updated_at {
-    type: string
+  dimension_group: campaign_updated_at {
+    type: time
     hidden: yes
-    sql: ${TABLE}.campaign_updated_at ;;
-    description: "date last updated as ISO 8601 date"
+    sql: PARSE_TIMESTAMP('%Y-%m-%dT%H:%M:%S', ${TABLE}.campaign_updated_at) ;;
+    timeframes: [
+      raw,
+      date,
+      week,
+      week_of_year,
+      month,
+      quarter,
+      year,
+      fiscal_month_num,
+      fiscal_quarter,
+      fiscal_quarter_of_year,
+      fiscal_year]
   }
 
   dimension: tag {

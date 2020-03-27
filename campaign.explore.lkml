@@ -74,7 +74,7 @@ explore: campaign_core {
   join: campaign_tag {
     view_label: "Campaign"
     sql_on: ${campaign.id} = ${campaign_tag.campaign_id}
-      AND ${campaign.updated_raw} = ${campaign_tag.campaign_updated_at}
+      AND ${campaign.updated_raw} = ${campaign_tag.campaign_updated_at_raw}
     ;;
     relationship: one_to_many
   }
@@ -105,7 +105,7 @@ explore: campaign_core {
 
   join: card {
     sql_on: ${in_app_message_event.card_id} = ${card.id}
-      AND ${in_app_message_event.card_updated_at} = ${card.updated_raw}
+      AND ${in_app_message_event.card_updated_at_raw} = ${card.updated_raw}
     ;;
     relationship: many_to_one
   }
@@ -113,7 +113,7 @@ explore: campaign_core {
   join: newsfeed_card_event {
     view_label: "Card Event"
     sql_on: ${card.id} = ${newsfeed_card_event.card_id}
-      AND ${card.updated_raw} = ${newsfeed_card_event.card_updated_at}
+      AND ${card.updated_raw} = ${newsfeed_card_event.card_updated_at_raw}
     ;;
     relationship: many_to_one
   }

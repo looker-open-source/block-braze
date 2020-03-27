@@ -36,7 +36,7 @@ view: campaign_conversion_event_core {
   dimension_group: updated {
     type: time
     hidden: yes
-    sql: PARSE_TIMESTAMP('%Y-%m-%dT%H:%M:%S', ${TABLE}.updated_at) ;;
+    sql: PARSE_TIMESTAMP('%Y-%m-%dT%H:%M:%S', ${TABLE}.campaign_updated_at) ;;
     timeframes: [
       raw,
       date,

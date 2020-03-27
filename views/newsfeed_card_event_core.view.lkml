@@ -32,10 +32,24 @@ view: newsfeed_card_event_core {
     description: "id of the card that was clicked"
   }
 
-  dimension: card_updated_at {
-    type: string
-    hidden:  yes
-    sql: ${TABLE}.card_updated_at ;;
+  dimension_group: card_updated_at {
+    hidden: yes
+    type: time
+    sql: PARSE_TIMESTAMP('%Y-%m-%dT%H:%M:%S', ${TABLE}.card_updated_at) ;;
+    timeframes: [
+      raw,
+      date,
+      week,
+      month,
+      quarter,
+      year,
+      day_of_week,
+      hour_of_day,
+      fiscal_month_num,
+      fiscal_quarter,
+      fiscal_quarter_of_year,
+      fiscal_year
+    ]
   }
 
   dimension: device_id {
