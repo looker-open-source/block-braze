@@ -14,6 +14,9 @@
     "SCHEMA_NAME": {
       "label": "Braze Schema Name"
     },
+    "DATASET_NAME": {
+      "label": "Braze Dataset Name"
+    },
     "CONFIG_PROJECT_NAME": {
       "label": "Config Project Name"
     }
@@ -27,7 +30,7 @@
   "auxiliary_projects": [
     {
       "git_uri": "git://github.com/looker/block-braze-config.git",
-      "git_ref": "{ TODO: ADD GIT REF }",
+      "git_ref": "0a117ef05a82d135f4eed631ebac95c256c784de",
       "label": "Braze Config",
       "constant_name": "CONFIG_PROJECT_NAME"
     }
