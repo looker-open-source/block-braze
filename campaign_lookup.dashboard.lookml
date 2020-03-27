@@ -365,139 +365,6 @@
     col: 14
     width: 5
     height: 4
-  - title: Current Week Enrollment
-    name: Current Week Enrollment
-    model: block_braze
-    explore: campaign
-    type: single_value
-    fields: [current_week_enrollment, previous_week_enrollment]
-    filters: {}
-    limit: 500
-    column_limit: 50
-    dynamic_fields: [{table_calculation: total_impressions, label: Total Impressions,
-        expression: "${campaign.estimated_audience} - ${email_event.total_bounces}\
-          \ - ${push_notification_event.total_bounces}", value_format: !!null '',
-        value_format_name: decimal_0, is_disabled: true, _kind_hint: dimension, _type_hint: number},
-      {measure: current_week_conversions, based_on: campaign_conversion_event.count,
-        type: count_distinct, label: Current Week Conversions, value_format: !!null '',
-        value_format_name: !!null '', _kind_hint: measure, _type_hint: number, filter_expression: "${campaign_conversion_event.time_week_of_year}\
-          \ = ${campaign.today_week_of_year} AND ${campaign_conversion_event.time_year}\
-          \ = ${campaign.today_year}"}, {measure: previous_week_conversions, based_on: campaign_conversion_event.count,
-        type: count_distinct, label: Previous Week Conversions, value_format: !!null '',
-        value_format_name: !!null '', _kind_hint: measure, _type_hint: number, filter_expression: "${campaign_conversion_event.time_week_of_year}\
-          \ = ${campaign.today_week_of_year}-1 AND ${campaign_conversion_event.time_year}\
-          \ = ${campaign.today_year}"}, {measure: current_week_enrollment, based_on: campaign_enrollment_event.count,
-        type: count_distinct, label: Current Week Enrollment, value_format: !!null '',
-        value_format_name: !!null '', _kind_hint: measure, _type_hint: number, filter_expression: "${campaign_enrollment_event.time_week_of_year}\
-          \ = ${campaign.today_week_of_year} AND ${campaign_enrollment_event.time_year}\
-          \ = ${campaign.today_year}"}, {measure: previous_week_enrollment, based_on: campaign_enrollment_event.count,
-        type: count_distinct, label: Previous Week Enrollment, value_format: !!null '',
-        value_format_name: !!null '', _kind_hint: measure, _type_hint: number, filter_expression: "${campaign_enrollment_event.time_week_of_year}\
-          \ = ${campaign.today_week_of_year}-1 AND ${campaign_enrollment_event.time_year}\
-          \ = ${campaign.today_year}"}, {table_calculation: current_week_enrollment_spoof,
-        label: Current Week Enrollment (Spoof), expression: "${current_week_enrollment}\
-          \ + 1 + rand() * 10", value_format: !!null '', value_format_name: decimal_0,
-        _kind_hint: measure, _type_hint: number}, {table_calculation: previous_week_enrollment_spoof,
-        label: Previous Week Enrollment (Spoof), expression: "${previous_week_enrollment}\
-          \ + 1 + rand() * 20", value_format: !!null '', value_format_name: decimal_0,
-        _kind_hint: measure, _type_hint: number}, {table_calculation: previous_week_spoof,
-        label: Previous Week (Spoof), expression: "${current_week_enrollment_spoof}\
-          \ - ${previous_week_enrollment_spoof}", value_format: !!null '', value_format_name: decimal_0,
-        _kind_hint: measure, _type_hint: number}]
-    custom_color_enabled: true
-    show_single_value_title: true
-    show_comparison: true
-    comparison_type: change
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    enable_conditional_formatting: false
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    comparison_label: Compared to Previous Week
-    series_types: {}
-    defaults_version: 1
-    hidden_fields: [current_week_enrollment, previous_week_enrollment, previous_week_enrollment_spoof]
-    show_view_names: false
-    show_row_numbers: true
-    transpose: false
-    truncate_text: true
-    hide_totals: false
-    hide_row_totals: false
-    size_to_fit: true
-    table_theme: white
-    limit_displayed_rows: false
-    header_text_alignment: left
-    header_font_size: 12
-    rows_font_size: 12
-    listen:
-      Campaign Name: campaign.name
-    row: 2
-    col: 14
-    width: 5
-    height: 4
-  - title: Current Week Conversions
-    name: Current Week Conversions
-    model: block_braze
-    explore: campaign
-    type: single_value
-    fields: [current_week_conversions, previous_week_conversions, campaign.estimated_audience]
-    filters: {}
-    limit: 500
-    column_limit: 50
-    dynamic_fields: [{table_calculation: total_impressions, label: Total Impressions,
-        expression: "${campaign.estimated_audience} - ${email_event.total_bounces}\
-          \ - ${push_notification_event.total_bounces}", value_format: !!null '',
-        value_format_name: decimal_0, is_disabled: true, _kind_hint: measure, _type_hint: number},
-      {measure: current_week_conversions, based_on: campaign_conversion_event.count,
-        type: count_distinct, label: Current Week Conversions, value_format: !!null '',
-        value_format_name: !!null '', _kind_hint: measure, _type_hint: number, filter_expression: "${campaign_conversion_event.time_week_of_year}\
-          \ = ${campaign.today_week_of_year} AND ${campaign_conversion_event.time_year}\
-          \ = ${campaign.today_year}"}, {measure: previous_week_conversions, based_on: campaign_conversion_event.count,
-        type: count_distinct, label: Previous Week Conversions, value_format: !!null '',
-        value_format_name: !!null '', _kind_hint: measure, _type_hint: number, filter_expression: "${campaign_conversion_event.time_week_of_year}\
-          \ = ${campaign.today_week_of_year}-1 AND ${campaign_conversion_event.time_year}\
-          \ = ${campaign.today_year}"}, {table_calculation: current_week_conversions_spoof,
-        label: Current Week Conversions (Spoof), expression: "${current_week_conversions}\
-          \ + 1 + rand() * 10", value_format: !!null '', value_format_name: decimal_0,
-        _kind_hint: measure, _type_hint: number}, {table_calculation: previous_week_conversions_spoof,
-        label: Previous Week Conversions (Spoof), expression: "${previous_week_conversions}\
-          \ + 1 + rand() * 20", value_format: !!null '', value_format_name: decimal_0,
-        _kind_hint: measure, _type_hint: number}, {table_calculation: calculation_6,
-        label: Calculation 6, expression: "${current_week_conversions_spoof} - ${previous_week_conversions_spoof}",
-        value_format: !!null '', value_format_name: decimal_0, _kind_hint: measure,
-        _type_hint: number}]
-    custom_color_enabled: true
-    show_single_value_title: true
-    show_comparison: true
-    comparison_type: change
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    enable_conditional_formatting: false
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    comparison_label: Previous Week
-    series_types: {}
-    defaults_version: 1
-    hidden_fields: [previous_week_conversions, campaign.estimated_audience, current_week_conversions,
-      previous_week_conversions_spoof]
-    show_view_names: false
-    show_row_numbers: true
-    transpose: false
-    truncate_text: true
-    hide_totals: false
-    hide_row_totals: false
-    size_to_fit: true
-    table_theme: white
-    limit_displayed_rows: false
-    header_text_alignment: left
-    header_font_size: 12
-    rows_font_size: 12
-    listen:
-      Campaign Name: campaign.name
-    row: 2
-    col: 19
-    width: 5
-    height: 4
   - title: Campaign Performance Over Time
     name: Campaign Performance Over Time
     model: block_braze
@@ -1125,6 +992,112 @@
     col: 0
     width: 14
     height: 6
+  - title: Current Week Enrollment
+    name: Current Week Enrollment
+    model: block_braze
+    explore: campaign
+    type: single_value
+    fields: [current_week_enrollment, previous_week_enrollment]
+    filters: {}
+    limit: 500
+    column_limit: 50
+    dynamic_fields: [{measure: current_week_conversions, based_on: campaign_conversion_event.count,
+        type: count_distinct, label: Current Week Conversions, value_format: !!null '',
+        value_format_name: !!null '', _kind_hint: measure, _type_hint: number, filter_expression: "${campaign_conversion_event.time_week_of_year}\
+          \ = ${campaign.today_week_of_year} AND ${campaign_conversion_event.time_year}\
+          \ = ${campaign.today_year}"}, {measure: previous_week_conversions, based_on: campaign_conversion_event.count,
+        type: count_distinct, label: Previous Week Conversions, value_format: !!null '',
+        value_format_name: !!null '', _kind_hint: measure, _type_hint: number, filter_expression: "${campaign_conversion_event.time_week_of_year}\
+          \ = ${campaign.today_week_of_year}-1 AND ${campaign_conversion_event.time_year}\
+          \ = ${campaign.today_year}"}, {measure: current_week_enrollment, based_on: campaign_enrollment_event.count,
+        type: count_distinct, label: Current Week Enrollment, value_format: !!null '',
+        value_format_name: !!null '', _kind_hint: measure, _type_hint: number, filter_expression: "${campaign_enrollment_event.time_week_of_year}\
+          \ = ${campaign.today_week_of_year} AND ${campaign_enrollment_event.time_year}\
+          \ = ${campaign.today_year}"}, {measure: previous_week_enrollment, based_on: campaign_enrollment_event.count,
+        type: count_distinct, label: Previous Week Enrollment, value_format: !!null '',
+        value_format_name: !!null '', _kind_hint: measure, _type_hint: number, filter_expression: "${campaign_enrollment_event.time_week_of_year}\
+          \ = ${campaign.today_week_of_year}-1 AND ${campaign_enrollment_event.time_year}\
+          \ = ${campaign.today_year}"}]
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: true
+    comparison_type: change
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    comparison_label: Compared to Previous Week
+    series_types: {}
+    defaults_version: 1
+    hidden_fields:
+    show_view_names: false
+    show_row_numbers: true
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: white
+    limit_displayed_rows: false
+    header_text_alignment: left
+    header_font_size: 12
+    rows_font_size: 12
+    listen:
+      Campaign Name: campaign.name
+    row: 2
+    col: 14
+    width: 5
+    height: 4
+  - title: Current Week Conversions
+    name: Current Week Conversions
+    model: block_braze
+    explore: campaign
+    type: single_value
+    fields: [current_week_conversions, previous_week_conversions]
+    filters: {}
+    limit: 500
+    column_limit: 50
+    dynamic_fields: [{measure: current_week_conversions, based_on: campaign_conversion_event.count,
+        type: count_distinct, label: Current Week Conversions, value_format: !!null '',
+        value_format_name: !!null '', _kind_hint: measure, _type_hint: number, filter_expression: "${campaign_conversion_event.time_week_of_year}\
+          \ = ${campaign.today_week_of_year} AND ${campaign_conversion_event.time_year}\
+          \ = ${campaign.today_year}"}, {measure: previous_week_conversions, based_on: campaign_conversion_event.count,
+        type: count_distinct, label: Previous Week Conversions, value_format: !!null '',
+        value_format_name: !!null '', _kind_hint: measure, _type_hint: number, filter_expression: "${campaign_conversion_event.time_week_of_year}\
+          \ = ${campaign.today_week_of_year}-1 AND ${campaign_conversion_event.time_year}\
+          \ = ${campaign.today_year}"}]
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: true
+    comparison_type: change
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    comparison_label: Compared to Previous Week
+    series_types: {}
+    defaults_version: 1
+    hidden_fields:
+    show_view_names: false
+    show_row_numbers: true
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: white
+    limit_displayed_rows: false
+    header_text_alignment: left
+    header_font_size: 12
+    rows_font_size: 12
+    listen:
+      Campaign Name: campaign.name
+    row: 2
+    col: 19
+    width: 5
+    height: 4
   filters:
   - name: Campaign Name
     title: Campaign Name

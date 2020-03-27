@@ -118,11 +118,20 @@ view: in_app_message_event_core {
     description: "id of the content card that was viewed/clicked/dismissed"
   }
 
-  dimension_group: card_updated_at {
+  dimension_group: card_updated {
     type: time
-    hidden: yes
-    timeframes: [raw, date, month, year]
     sql: PARSE_TIMESTAMP('%Y-%m-%dT%H:%M:%S', ${TABLE}.card_updated_at) ;;
+    timeframes: [
+      raw,
+      date,
+      week,
+      month,
+      quarter,
+      year,
+      fiscal_month_num,
+      fiscal_quarter,
+      fiscal_quarter_of_year,
+      fiscal_year]
   }
 
   dimension: device_id {
