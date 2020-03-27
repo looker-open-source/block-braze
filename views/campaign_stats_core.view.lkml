@@ -151,7 +151,7 @@ view: campaign_stats_core {
     label: "Average Number of Conversion Events"
     type: number
     sql: ${sum_conversions}/NULLIF(${num_of_campaigns},0) ;;
-    value_format_name: decimal_1
+    value_format_name: decimal_0
   }
 
   measure: average_estimated_audience {

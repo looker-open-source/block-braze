@@ -1001,11 +1001,7 @@
     filters: {}
     limit: 500
     column_limit: 50
-    dynamic_fields: [{table_calculation: total_impressions, label: Total Impressions,
-        expression: "${campaign.estimated_audience} - ${email_event.total_bounces}\
-          \ - ${push_notification_event.total_bounces}", value_format: !!null '',
-        value_format_name: decimal_0, is_disabled: true, _kind_hint: dimension, _type_hint: number},
-      {measure: current_week_conversions, based_on: campaign_conversion_event.count,
+    dynamic_fields: [{measure: current_week_conversions, based_on: campaign_conversion_event.count,
         type: count_distinct, label: Current Week Conversions, value_format: !!null '',
         value_format_name: !!null '', _kind_hint: measure, _type_hint: number, filter_expression: "${campaign_conversion_event.time_week_of_year}\
           \ = ${campaign.today_week_of_year} AND ${campaign_conversion_event.time_year}\
@@ -1021,16 +1017,7 @@
         type: count_distinct, label: Previous Week Enrollment, value_format: !!null '',
         value_format_name: !!null '', _kind_hint: measure, _type_hint: number, filter_expression: "${campaign_enrollment_event.time_week_of_year}\
           \ = ${campaign.today_week_of_year}-1 AND ${campaign_enrollment_event.time_year}\
-          \ = ${campaign.today_year}"}, {table_calculation: current_week_enrollment_spoof,
-        label: Current Week Enrollment (Spoof), expression: "${current_week_enrollment}\
-          \ + 1 + rand() * 10", value_format: !!null '', value_format_name: decimal_0,
-        _kind_hint: measure, _type_hint: number, is_disabled: true}, {table_calculation: previous_week_enrollment_spoof,
-        label: Previous Week Enrollment (Spoof), expression: "${previous_week_enrollment}\
-          \ + 1 + rand() * 20", value_format: !!null '', value_format_name: decimal_0,
-        _kind_hint: measure, _type_hint: number, is_disabled: true}, {table_calculation: previous_week_spoof,
-        label: Previous Week (Spoof), expression: "${current_week_enrollment_spoof}\
-          \ - ${previous_week_enrollment_spoof}", value_format: !!null '', value_format_name: decimal_0,
-        _kind_hint: measure, _type_hint: number, is_disabled: true}]
+          \ = ${campaign.today_year}"}]
     custom_color_enabled: true
     show_single_value_title: true
     show_comparison: true
@@ -1071,11 +1058,7 @@
     filters: {}
     limit: 500
     column_limit: 50
-    dynamic_fields: [{table_calculation: total_impressions, label: Total Impressions,
-        expression: "${campaign.estimated_audience} - ${email_event.total_bounces}\
-          \ - ${push_notification_event.total_bounces}", value_format: !!null '',
-        value_format_name: decimal_0, is_disabled: true, _kind_hint: measure, _type_hint: number},
-      {measure: current_week_conversions, based_on: campaign_conversion_event.count,
+    dynamic_fields: [{measure: current_week_conversions, based_on: campaign_conversion_event.count,
         type: count_distinct, label: Current Week Conversions, value_format: !!null '',
         value_format_name: !!null '', _kind_hint: measure, _type_hint: number, filter_expression: "${campaign_conversion_event.time_week_of_year}\
           \ = ${campaign.today_week_of_year} AND ${campaign_conversion_event.time_year}\
@@ -1083,16 +1066,7 @@
         type: count_distinct, label: Previous Week Conversions, value_format: !!null '',
         value_format_name: !!null '', _kind_hint: measure, _type_hint: number, filter_expression: "${campaign_conversion_event.time_week_of_year}\
           \ = ${campaign.today_week_of_year}-1 AND ${campaign_conversion_event.time_year}\
-          \ = ${campaign.today_year}"}, {table_calculation: current_week_conversions_spoof,
-        label: Current Week Conversions (Spoof), expression: "${current_week_conversions}\
-          \ + 1 + rand() * 10", value_format: !!null '', value_format_name: decimal_0,
-        _kind_hint: measure, _type_hint: number, is_disabled: true}, {table_calculation: previous_week_conversions_spoof,
-        label: Previous Week Conversions (Spoof), expression: "${previous_week_conversions}\
-          \ + 1 + rand() * 20", value_format: !!null '', value_format_name: decimal_0,
-        _kind_hint: measure, _type_hint: number, is_disabled: true}, {table_calculation: calculation_6,
-        label: Calculation 6, expression: "${current_week_conversions_spoof} - ${previous_week_conversions_spoof}",
-        value_format: !!null '', value_format_name: decimal_0, _kind_hint: measure,
-        _type_hint: number, is_disabled: true}]
+          \ = ${campaign.today_year}"}]
     custom_color_enabled: true
     show_single_value_title: true
     show_comparison: true
