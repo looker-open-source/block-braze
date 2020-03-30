@@ -214,49 +214,70 @@ view: email_event_core {
   measure: total_sent {
     group_label: "Email"
     type: count
-    filters: [ event_type: "Send"]
+    filters: {
+      field: event_type
+      value: "Send"
+    }
     value_format_name: decimal_0
   }
 
   measure: total_clicks {
     group_label: "Email"
     type: count
-    filters: [ event_type: "Clicks"]
+    filters: {
+      field: event_type
+      value: "Clicks"
+    }
     value_format_name: decimal_0
   }
 
   measure: total_delivered {
     group_label: "Email"
     type: count
-    filters: [ event_type: "Delivery"]
+    filters:{
+      field: event_type
+      value: "Delivery"
+    }
     value_format_name: decimal_0
   }
 
   measure: total_marked_as_spam {
     group_label: "Email"
     type: count
-    filters: [ event_type: "MarkAsSpam"]
+    filters: {
+      field: event_type
+      value: "MarkAsSpam"
+    }
     value_format_name: decimal_0
   }
 
   measure: total_unsubscribed {
     group_label: "Email"
     type: count
-    filters: [ event_type: "Unsubscribe"]
+    filters: {
+      field: event_type
+      value: "Unsubscribe"
+    }
     value_format_name: decimal_0
   }
 
   measure: total_bounces {
     group_label: "Email"
     type: count
-    filters: [ event_type: "Bounce"]
+    filters: {
+      field:event_type
+      value: "Bounce"
+    }
     value_format_name: decimal_0
   }
 
   measure: total_opened {
     group_label: "Email"
     type: count
-    filters: [ event_type: "Open"]
+    filters: {
+      field: event_type
+      value: "Open"
+    }
     value_format_name: decimal_0
   }
 

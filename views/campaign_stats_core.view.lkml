@@ -21,7 +21,6 @@ view: campaign_stats_core {
       column: subscriptions { field: subscription_event.count }
       column: days_time_to_conversion { field: campaign_enrollment_event.days_to_conversion }
 
-#       filters: [campaign.estimated_audience: "NOT NULL"]
     }
 
     sql_trigger_value: SELECT CURRENT_DATE() ;;

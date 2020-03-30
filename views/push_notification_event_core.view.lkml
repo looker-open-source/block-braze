@@ -202,23 +202,30 @@ view: push_notification_event_core {
   measure: total_sent {
     group_label: "Push Notifications"
     type: count
-    #filters: [ event_type: "Send"]
-    filters: [event_type: "olive, aqua, black, white, teal"]
+    filters: {
+      field: event_type
+      value: "Send"
+    }
     value_format_name: decimal_0
   }
 
   measure: total_open {
     group_label: "Push Notifications"
     type: count
-    #filters: [ event_type: "Open"]
-    filters: [event_type: "lime, green, navy"]
+    filters: {
+      field: event_type
+      value: "Open"
+    }
     value_format_name: decimal_0
   }
 
   measure: total_ios_foreground {
     group_label: "Push Notifications"
     type: count
-    filters: [ event_type: "iOS Foreground"]
+    filters: {
+      field: event_type
+      value: "iOS Foreground"
+    }
     value_format_name: decimal_0
   }
 
@@ -226,8 +233,10 @@ view: push_notification_event_core {
   measure: total_bounces {
     group_label: "Push Notifications"
     type: count
-    #filters: [ event_type: "Bounce"]
-    filters: [event_type: "gray"]
+    filters: {
+      field: event_type
+      value: "Bounce"
+    }
     value_format_name: decimal_0
   }
 
