@@ -19,7 +19,7 @@ explore: campaign_core {
   join: email_event {
     view_label: "Campaign Events"
     sql_on: ${campaign.id} = ${email_event.campaign_id}
-      AND ${campaign.updated_raw} = ${email_event.campaign_updated_raw}
+      # AND ${campaign.updated_raw} = ${email_event.campaign_updated_raw}
     ;;
     relationship: one_to_many
   }
