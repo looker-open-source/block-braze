@@ -1,6 +1,10 @@
 explore: campaign_core {
   from: campaign
   extension: required
+  query: impressions_conversion_scatter {
+    measures: [campaign.count]
+    dimensions: [campaign.month]
+  }
 
   join: campaign_stats {
     view_label: "Campaign"

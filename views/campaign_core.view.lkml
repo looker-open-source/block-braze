@@ -91,6 +91,11 @@ view: campaign_core {
       fiscal_year]
   }
 
+  dimension: month {
+    type: string
+    sql: ${created_month} ;;
+  }
+
   dimension: draft {
     type: yesno
     sql: ${TABLE}.draft ;;
