@@ -1,7 +1,7 @@
 explore: campaign_core {
   from: campaign
   extension: required
-  query: impressions_conversion_scatter {
+  query: campaign_count_over_time {
     measures: [campaign.count]
     dimensions: [campaign.month]
   }
