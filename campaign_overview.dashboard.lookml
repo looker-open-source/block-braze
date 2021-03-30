@@ -1,6 +1,7 @@
 - dashboard: braze_campaign_overview
   title: Braze Campaign Overview
   layout: newspaper
+  preferred_viewer: dashboards-next
   elements:
   - title: Estimated Audience
     name: Estimated Audience
