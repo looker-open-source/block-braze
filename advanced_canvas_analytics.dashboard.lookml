@@ -1,6 +1,7 @@
 - dashboard: advanced_canvas_analytics
   title: Advanced Canvas Analytics
   layout: newspaper
+  preferred_viewer: dashboards-next
   elements:
   - title: Step Distribution by Canvas
     name: Step Distribution by Canvas
